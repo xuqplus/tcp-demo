@@ -1,15 +1,15 @@
-package cn.xuqplus.day0.server;
+package cn.xuqplus.day0.reply;
 
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.buffer.ByteBuf;
-import io.netty.channel.*;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelOption;
+import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import io.netty.util.CharsetUtil;
-import io.netty.util.ReferenceCountUtil;
 
-public class DiscardServer {
+public class Server {
     private static void log(Object o) {
         System.out.println(o);
     }
@@ -20,7 +20,7 @@ public class DiscardServer {
 
     private int port;
 
-    public DiscardServer(int port) {
+    public Server(int port) {
         super();
         this.port = port;
     }
@@ -36,7 +36,7 @@ public class DiscardServer {
             bootstrap = bootstrap.childHandler(new ChannelInitializer<SocketChannel>() {
                 @Override
                 public void initChannel(SocketChannel channel) {
-                    channel.pipeline().addLast(new DiscardServerHandler());
+                    channel.pipeline().addLast(new ServerHandler());
                 }
             });
             bootstrap = bootstrap.option(ChannelOption.SO_BACKLOG, 128);
@@ -59,7 +59,7 @@ public class DiscardServer {
         } else {
             port = 8080;
         }
-        new DiscardServer(port).run();
+        new Server(port).run();
         log("开始");
     }
 }
