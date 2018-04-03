@@ -13,7 +13,7 @@ public class App {
     public static void main(String[] args) throws IOException {
         ServerSocket serverSocket = null;
         Socket socket = null;
-        String msg = "hello client,I am reply..";
+        String msg = "hello client, I am reply..";
         try {
             //构造ServerSocket实例，指定端口监听客户端的连接请求
             serverSocket = new ServerSocket(8080);

@@ -22,7 +22,7 @@ public class App {
             System.out.println(new String(b));
             //给服务端发送响应信息
             OutputStream os = socket.getOutputStream();
-            os.write("yes,I have received you message!".getBytes());
+            os.write("yes, I have received your message!".getBytes());
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
