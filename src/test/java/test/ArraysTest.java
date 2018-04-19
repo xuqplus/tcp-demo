@@ -9,6 +9,7 @@ public class ArraysTest {
     @Test
     public void copy() {
         byte[] b = Arrays.copyOf(new byte[]{1, 2, 3, 4, 5}, 19);
-        System.out.println(b);
+        System.out.println(Arrays.toString(b));
+        float f = Float.valueOf("0.");
     }
 }
